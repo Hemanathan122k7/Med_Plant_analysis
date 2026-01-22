@@ -1,7 +1,30 @@
 // API Client Module
 // Handles all communication with the backend Spring Boot API
 
-const API_BASE_URL = "http://localhost:8080/api";
+// Automatically detect API base URL based on environment
+const API_BASE_URL = (() => {
+    // Use config if available
+    if (typeof window !== 'undefined' && window.APP_CONFIG) {
+        return window.APP_CONFIG.api.baseUrl;
+    }
+    
+    // Fallback: Auto-detect based on hostname
+    if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        
+        // Production: Use environment variable or default to a placeholder
+        if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+            // TODO: Replace with your actual backend URL after deploying
+            console.warn('⚠️ Backend API not configured. Using mock data.');
+            return null; // Will use local data
+        }
+    }
+    
+    // Development: Use local backend
+    return 'http://localhost:8080/api';
+})();
+
+console.log('🌐 API Base URL:', API_BASE_URL || 'Using local mock data');
 
 /**
  * API Client for Medicinal Plant Backend
@@ -36,7 +59,7 @@ const ApiClient = (() => {
     const fetchWithErrorHandling = async (url, options = {}) => {
         try {
             console.log('🌐 API Request:', url, options);
-            showLoadingSpinner();
+            if (typeof showLoadingSpinner === 'function') showLoadingSpinner();
             
             const response = await fetch(url, options);
             console.log('📡 API Response Status:', response.status, response.statusText);
@@ -50,13 +73,17 @@ const ApiClient = (() => {
             
             const data = await response.json();
             console.log('✅ API Response Data:', data);
-            hideLoadingSpinner();
+            if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
             
             return data;
         } catch (error) {
-            hideLoadingSpinner();
+            if (typeof hideLoadingSpinner === 'function') hideLoadingSpinner();
             console.error('💥 API Error:', error);
-            showToast(error.message || 'An error occurred while communicating with the server', 'error');
+            
+            // Only show toast if function exists
+            if (typeof showToast === 'function') {
+                showToast(error.message || 'Backend not available. Using local data.', 'warning');
+            }
             throw error;
         }
     };
@@ -70,11 +97,17 @@ const ApiClient = (() => {
      * GET /api/plants/all
      */
     const fetchAllPlants = async () => {
+        // If no API configured, return empty (will use local data)
+        if (!API_BASE_URL) {
+            console.log('📦 Using local plant data (no backend configured)');
+            return [];
+        }
+        
         try {
             const response = await fetchWithErrorHandling(`${API_BASE_URL}/plants/all`);
             return response.data || [];
         } catch (error) {
-            console.error('Failed to fetch plants:', error);
+            console.error('Failed to fetch plants from backend, using local data:', error);
             return [];
         }
     };

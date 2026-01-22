@@ -1,24 +1,18 @@
 {
   "version": 2,
   "name": "mediplant",
-  "builds": [
-    {
-      "src": "medicinal-plant-identifier/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "cd medicinal-plant-identifier && echo 'No build required'",
+  "outputDirectory": "medicinal-plant-identifier",
   "routes": [
     {
-      "src": "/medicinal-plant-identifier/(.*)",
-      "dest": "/medicinal-plant-identifier/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|json|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/medicinal-plant-identifier/$1"
+      "src": "/(.*\\.(js|css|json|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|html))",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     },
     {
       "src": "/(.*)",
-      "dest": "/medicinal-plant-identifier/index.html"
+      "dest": "/index.html"
     }
   ],
   "headers": [
@@ -36,6 +30,10 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     },
@@ -65,12 +63,6 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/medicinal-plant-identifier/index.html"
     }
   ]
 }

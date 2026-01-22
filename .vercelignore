@@ -19,7 +19,6 @@ Thumbs.db
 
 # Git
 .git/
-.gitignore
 
 # Build artifacts
 target/
@@ -39,6 +38,5 @@ target/
 coverage/
 .nyc_output/
 
-# Misc
-README.md
-LICENSE
+# Documentation
+DEPLOYMENT.md
