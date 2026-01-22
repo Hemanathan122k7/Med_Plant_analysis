@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: medicinal-plant-backend
+
+  datasource:
+    url: jdbc:h2:mem:medicinalplantdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        '[format_sql]': true
+        dialect: org.hibernate.dialect.H2Dialect
+  
+  sql:
+    init:
+      mode: never
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# PlantNet API Configuration
+plantnet:
+  api:
+    key: 2b10I4BwOhxDh6kilrFQxvZ
+    url: https://my-api.plantnet.org/v2/identify/all
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+jwt:
+  secret: ${JWT_SECRET:medicinalplant_secret_key_for_jwt_token_generation_2024}
+  expiration: 86400000 # 24 hours
+
+openai:
+  api:
+    key: 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
+    model: gpt-3.5-turbo
+    max-tokens: 500
+    temperature: 0.7
+
+logging:
+  level:
+    '[com.medicinal.plant]': DEBUG
+    '[org.springframework.web]': INFO
+    '[org.hibernate]': INFO
+    '[org.springframework.jdbc.datasource.init]': DEBUG

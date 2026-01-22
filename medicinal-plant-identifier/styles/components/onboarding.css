@@ -1,0 +1,107 @@
+/* Onboarding Slider Component Styles */
+
+.onboarding-slider {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.onboarding-slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+    background-size: cover;
+}
+
+.slide {
+    display: none;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.slide h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.slide p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.skip-onboarding {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.skip-onboarding:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Onboarding */
+@media (max-width: 768px) {
+    .onboarding-slider {
+        padding: 2rem 1rem;
+    }
+    
+    .slide-icon {
+        font-size: 3rem;
+    }
+    
+    .slide h3 {
+        font-size: 1.5rem;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+    }
+}

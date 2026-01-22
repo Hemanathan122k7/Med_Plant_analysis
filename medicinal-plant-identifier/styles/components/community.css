@@ -1,0 +1,87 @@
+/* Community Component Styles */
+
+.community-section {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.user-reviews, .ask-expert {
+    margin-bottom: 2rem;
+}
+
+.user-reviews h4, .ask-expert h4 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.review {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--card-bg);
+    transition: transform 0.3s;
+}
+
+.review:hover {
+    transform: translateY(-3px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.review-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    margin-bottom: 0.5rem;
+}
+
+.review-text {
+    color: var(--text-primary);
+}
+
+.ask-expert p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.ask-question-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ask-question-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Responsive Community */
+@media (max-width: 768px) {
+    .review-header {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}

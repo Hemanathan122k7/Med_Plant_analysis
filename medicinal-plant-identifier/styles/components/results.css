@@ -1,0 +1,217 @@
+/* Results Component Styles */
+
+.results-section {
+    background-color: var(--surface);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: none;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.results-section.active {
+    display: block;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.results-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+    color: var(--text-primary);
+}
+
+.action-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: white;
+}
+
+.action-btn.favorite.active {
+    background: #ffeaea;
+    border-color: #f44336;
+    color: #f44336;
+}
+
+#results-count {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#results-container {
+    min-height: 200px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Comparison Tool */
+.comparison-tool {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.comparison-tool.active {
+    display: block;
+}
+
+.comparison-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--card-bg);
+    transition: transform 0.3s;
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+}
+
+.comparison-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.comparison-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.remove-from-comparison {
+    background: var(--error);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.remove-from-comparison:hover {
+    background: #d32f2f;
+}
+
+/* Featured Plants */
+.featured-plants {
+    margin-top: 3rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.plant-preview {
+    background-color: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.plant-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.preview-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.plant-preview:hover .preview-image {
+    transform: scale(1.1);
+}
+
+.preview-info {
+    padding: 1rem;
+}
+
+.preview-name {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.preview-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Results */
+@media (max-width: 768px) {
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .results-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .plants-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}

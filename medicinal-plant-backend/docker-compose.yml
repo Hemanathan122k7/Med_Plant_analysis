@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: medicinal-plant-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: medicinal_plant_db
+      MYSQL_USER: plantuser
+      MYSQL_PASSWORD: plantpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - plant-network
+
+  backend:
+    build: .
+    container_name: medicinal-plant-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medicinal_plant_db?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: plantuser
+      SPRING_DATASOURCE_PASSWORD: plantpassword
+    depends_on:
+      - mysql
+    networks:
+      - plant-network
+    volumes:
+      - ./uploads:/app/uploads
+
+volumes:
+  mysql_data:
+
+networks:
+  plant-network:
+    driver: bridge

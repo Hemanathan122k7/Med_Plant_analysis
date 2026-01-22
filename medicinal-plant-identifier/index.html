@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediPlant - Advanced Medicinal Plant Identifier. Discover, identify, and learn about medicinal plants and their healing properties.">
+    <meta name="keywords" content="medicinal plants, herbal medicine, plant identification, natural remedies">
+    <title>MediPlant - Advanced Medicinal Plant Identifier</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/themes/light.css">
+    <link rel="stylesheet" href="styles/themes/dark.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/onboarding.css">
+    <link rel="stylesheet" href="styles/components/search.css">
+    <link rel="stylesheet" href="styles/components/results.css">
+    <link rel="stylesheet" href="styles/components/cards.css">
+    <link rel="stylesheet" href="styles/components/community.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+</head>
+<body>
+    <!-- Theme transition overlay -->
+    <div class="theme-transition" id="theme-transition"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <h1>MediPlant</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#search">Search</a></li>
+                    <li><a href="#plants">Plants</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun sun"></i>
+                    <i class="fas fa-moon moon"></i>
+                </button>
+                <div class="user-actions">
+                    <button class="user-btn" title="Search History"><i class="fas fa-history"></i></button>
+                    <button class="user-btn" title="Favorites"><i class="far fa-heart"></i></button>
+                    <button class="user-btn" title="Settings"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Onboarding Slider -->
+        <div class="onboarding-slider" id="onboarding">
+            <button class="skip-onboarding">Skip</button>
+            
+            <div class="slide active">
+                <div class="slide-icon">🔍</div>
+                <h3>Identify Plants</h3>
+                <p>Take a photo or describe symptoms to find medicinal plants</p>
+            </div>
+            
+            <div class="slide">
+                <div class="slide-icon">💊</div>
+                <h3>Learn Uses</h3>
+                <p>Discover traditional and modern medicinal applications</p>
+            </div>
+            
+            <div class="slide">
+                <div class="slide-icon">⚠️</div>
+                <h3>Safety First</h3>
+                <p>Important precautions and usage guidelines</p>
+            </div>
+            
+            <div class="slider-controls">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Search Section -->
+        <section class="search-section" id="search">
+            <div class="search-header">
+                <h2>Identify Medicinal Plants</h2>
+                <button class="voice-search-btn" title="Voice Search">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+            <p>Find information about medicinal plants using different search methods</p>
+            
+            <div class="search-tabs">
+                <div class="tab active" data-tab="symptoms">
+                    <i class="fas fa-stethoscope"></i>
+                    Symptoms
+                </div>
+                <div class="tab" data-tab="image">
+                    <i class="fas fa-camera"></i>
+                    Image Search
+                </div>
+                <div class="tab" data-tab="visual">
+                    <i class="fas fa-eye"></i>
+                    Visual Search
+                </div>
+                <div class="tab" data-tab="name">
+                    <i class="fas fa-search"></i>
+                    Name Search
+                </div>
+            </div>
+            
+            <!-- Symptoms Search Tab -->
+            <div class="tab-content active" id="symptoms-tab">
+                <div class="search-input-container">
+                    <input type="text" class="search-input" placeholder="Enter symptoms (e.g. headache, fever, stomach pain)">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="search-suggestions">
+                        <div class="suggestion-item">Headache</div>
+                        <div class="suggestion-item">Fever</div>
+                        <div class="suggestion-item">Stomach pain</div>
+                        <div class="suggestion-item">Skin irritation</div>
+                        <div class="suggestion-item">Anxiety</div>
+                    </div>
+                </div>
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Search by Symptoms
+                </button>
+            </div>
+            
+            <!-- Image Search Tab -->
+            <div class="tab-content" id="image-tab">
+                <div class="image-search-enhanced">
+                    <div class="camera-option">
+                        <button class="camera-btn">
+                            <i class="fas fa-camera"></i>
+                            Take Photo
+                        </button>
+                    </div>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📷</div>
+                        <p>Click to upload an image or drag and drop</p>
+                        <p>Supported formats: JPG, PNG, WEBP</p>
+                    </div>
+                    <input type="file" id="image-upload" accept="image/*" class="hidden-input" aria-label="Upload plant image">
+                    
+                    <div class="image-preview" id="image-preview">
+                        <img id="preview-img" src="" alt="Preview">
+                        <div class="image-actions">
+                            <button class="crop-btn"><i class="fas fa-crop-alt"></i> Crop</button>
+                            <button class="rotate-btn"><i class="fas fa-redo"></i> Rotate</button>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Identify Plant
+                </button>
+            </div>
+            
+            <!-- Visual Search Tab -->
+            <div class="tab-content" id="visual-tab">
+                <h3>Select Plant Characteristics</h3>
+                
+                <h4>Leaf Shape</h4>
+                <div class="visual-search-options" id="leaf-shape">
+                    <div class="visual-option" data-value="oval">
+                        <div class="option-icon">🍃</div>
+                        <div>Oval</div>
+                    </div>
+                    <div class="visual-option" data-value="lanceolate">
+                        <div class="option-icon">🌱</div>
+                        <div>Lanceolate</div>
+                    </div>
+                    <div class="visual-option" data-value="heart">
+                        <div class="option-icon">💚</div>
+                        <div>Heart-shaped</div>
+                    </div>
+                    <div class="visual-option" data-value="palmate">
+                        <div class="option-icon">🖐️</div>
+                        <div>Palmate</div>
+                    </div>
+                    <div class="visual-option" data-value="needle">
+                        <div class="option-icon">🌲</div>
+                        <div>Needle-like</div>
+                    </div>
+                </div>
+                
+                <h4>Flower Color</h4>
+                <div class="visual-search-options" id="flower-color">
+                    <div class="visual-option" data-value="white">
+                        <div class="option-icon">⚪</div>
+                        <div>White</div>
+                    </div>
+                    <div class="visual-option" data-value="yellow">
+                        <div class="option-icon">🟡</div>
+                        <div>Yellow</div>
+                    </div>
+                    <div class="visual-option" data-value="red">
+                        <div class="option-icon">🔴</div>
+                        <div>Red</div>
+                    </div>
+                    <div class="visual-option" data-value="purple">
+                        <div class="option-icon">🟣</div>
+                        <div>Purple</div>
+                    </div>
+                    <div class="visual-option" data-value="blue">
+                        <div class="option-icon">🔵</div>
+                        <div>Blue</div>
+                    </div>
+                </div>
+                
+                <h4>Plant Height</h4>
+                <div class="visual-search-options" id="plant-height">
+                    <div class="visual-option" data-value="short">
+                        <div class="option-icon">📏</div>
+                        <div>Short (< 1 ft)</div>
+                    </div>
+                    <div class="visual-option" data-value="medium">
+                        <div class="option-icon">📐</div>
+                        <div>Medium (1-3 ft)</div>
+                    </div>
+                    <div class="visual-option" data-value="tall">
+                        <div class="option-icon">📏</div>
+                        <div>Tall (> 3 ft)</div>
+                    </div>
+                </div>
+                
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Search by Characteristics
+                </button>
+            </div>
+            
+            <!-- Name Search Tab -->
+            <div class="tab-content" id="name-tab">
+                <div class="search-input-container">
+                    <input type="text" class="search-input" placeholder="Enter plant name (e.g. Aloe Vera, Turmeric)">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="search-suggestions">
+                        <div class="suggestion-item">Aloe Vera</div>
+                        <div class="suggestion-item">Turmeric</div>
+                        <div class="suggestion-item">Ginger</div>
+                        <div class="suggestion-item">Lavender</div>
+                        <div class="suggestion-item">Peppermint</div>
+                    </div>
+                </div>
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Search by Name
+                </button>
+            </div>
+            
+            <!-- Advanced Filters -->
+            <button class="filter-toggle">
+                <i class="fas fa-sliders-h"></i>
+                Advanced Filters
+            </button>
+            
+            <div class="advanced-filters">
+                <div class="filter-group">
+                    <h5>Medicinal Properties</h5>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="anti-inflammatory">
+                            Anti-inflammatory
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="antioxidant">
+                            Antioxidant
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="analgesic">
+                            Pain Relief
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="digestive">
+                            Digestive Aid
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="calming">
+                            Calming
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h5>Safety Level</h5>
+                    <div class="safety-slider">
+                        <input type="range" min="1" max="5" value="3" class="slider" aria-label="Safety level filter">
+                        <div class="safety-labels">
+                            <span>Caution</span>
+                            <span>Generally Safe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h5>Availability</h5>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="common" checked>
+                            Common
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="uncommon">
+                            Uncommon
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="rare">
+                            Rare
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Search Hint -->
+        <div class="search-hint" id="search-hint">
+            <h3>🔍 Search for plants to see results here</h3>
+            <p>Use any of the search methods above to find medicinal plants</p>
+        </div>
+        
+        <!-- Results Section -->
+        <section class="results-section" id="results">
+            <div class="results-header">
+                <h2>Search Results</h2>
+                <div class="results-actions">
+                    <button class="action-btn compare" id="compare-btn">
+                        <i class="fas fa-balance-scale"></i>
+                        Compare
+                    </button>
+                    <button class="action-btn filter">
+                        <i class="fas fa-filter"></i>
+                        Filter
+                    </button>
+                </div>
+            </div>
+            
+            <div id="results-count">0 plants found</div>
+            
+            <div id="results-container">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+            
+            <div class="no-results hidden" id="no-results">
+                <h3>No plants found matching your criteria</h3>
+                <p>Try adjusting your search parameters or browse our featured plants below.</p>
+            </div>
+        </section>
+        
+        <!-- Comparison Tool -->
+        <div class="comparison-tool" id="comparison-tool">
+            <div class="comparison-header">
+                <h3>Compare Plants</h3>
+                <button class="action-btn" id="clear-comparison">
+                    <i class="fas fa-times"></i>
+                    Clear All
+                </button>
+            </div>
+            <div class="comparison-grid" id="comparison-grid">
+                <!-- Comparison cards will be inserted here -->
+            </div>
+        </div>
+        
+        <!-- Community Section -->
+        <section class="community-section" id="community">
+            <h2 class="section-title">Community Insights</h2>
+            
+            <div class="user-reviews">
+                <h4>User Experiences</h4>
+                <div class="review">
+                    <div class="review-header">
+                        <span class="user-name">Sarah M.</span>
+                        <span class="review-date">2 weeks ago</span>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">Used Aloe Vera for sunburn relief - worked wonders! The gel provided instant cooling and the redness was gone in two days.</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <span class="user-name">James K.</span>
+                        <span class="review-date">1 month ago</span>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐</div>
+                    <p class="review-text">Turmeric tea helped with my joint inflammation. Took about a week to notice significant improvement, but it was worth it.</p>
+                </div>
+            </div>
+            
+            <div class="ask-expert">
+                <h4>Ask an Expert</h4>
+                <p>Have questions about medicinal plants? Our community experts can help.</p>
+                <button class="ask-question-btn">
+                    <i class="fas fa-question-circle"></i>
+                    Post Your Question
+                </button>
+            </div>
+        </section>
+        
+        <!-- Featured Plants -->
+        <section class="featured-plants">
+            <h2 class="section-title">
+                Featured Medicinal Plants
+                <a href="#" class="view-all">View All</a>
+            </h2>
+            <div class="plants-grid">
+                <div class="plant-preview" data-plant="aloe">
+                    <img src="https://via.placeholder.com/250x180/4caf50/ffffff?text=Aloe+Vera" alt="Aloe Vera" class="preview-image">
+                    <div class="preview-info">
+                        <h3 class="preview-name">Aloe Vera</h3>
+                        <p>Used for skin conditions, burns, and digestive issues.</p>
+                    </div>
+                </div>
+                
+                <div class="plant-preview" data-plant="turmeric">
+                    <img src="https://via.placeholder.com/250x180/ff9800/ffffff?text=Turmeric" alt="Turmeric" class="preview-image">
+                    <div class="preview-info">
+                        <h3 class="preview-name">Turmeric</h3>
+                        <p>Powerful anti-inflammatory and antioxidant properties.</p>
+                    </div>
+                </div>
+                
+                <div class="plant-preview" data-plant="peppermint">
+                    <img src="https://via.placeholder.com/250x180/4caf50/ffffff?text=Peppermint" alt="Peppermint" class="preview-image">
+                    <div class="preview-info">
+                        <h3 class="preview-name">Peppermint</h3>
+                        <p>Relieves digestive issues, headaches, and muscle pain.</p>
+                    </div>
+                </div>
+                
+                <div class="plant-preview" data-plant="lavender">
+                    <img src="https://via.placeholder.com/250x180/9c27b0/ffffff?text=Lavender" alt="Lavender" class="preview-image">
+                    <div class="preview-info">
+                        <h3 class="preview-name">Lavender</h3>
+                        <p>Calming herb for anxiety, insomnia, and stress relief.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MediPlant</h3>
+                <p>Your trusted companion for identifying medicinal plants and discovering their healing properties.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#search">Plant Search</a></li>
+                    <li><a href="#plants">Plant Directory</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#guide">Plant Identification Guide</a></li>
+                    <li><a href="#safety">Safety Guidelines</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: info@mediplant.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                    <li>Address: 123 Nature Way, Green City</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 MediPlant. All rights reserved. | This application is for educational purposes only. Consult a healthcare professional before using any herbal remedies.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <!-- Utility Scripts -->
+    <script src="scripts/utils/helpers.js"></script>
+    <script src="scripts/utils/animations.js"></script>
+    
+    <!-- Module Scripts (Load before main.js) -->
+    <script src="scripts/modules/plant-database.js"></script>
+    <script src="scripts/modules/user-preferences.js"></script>
+    <script src="scripts/modules/theme-manager.js"></script>
+    <script src="scripts/modules/ui-manager.js"></script>
+    <script src="scripts/modules/search-engine.js"></script>
+    <script src="scripts/modules/api-client.js"></script>
+    
+    <!-- Main Application Script (Load last) -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

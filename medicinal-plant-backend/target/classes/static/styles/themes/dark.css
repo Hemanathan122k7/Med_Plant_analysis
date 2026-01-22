@@ -1,0 +1,50 @@
+/* Dark Theme Variables */
+
+[data-theme="dark"] {
+    --primary: #4caf50;
+    --primary-light: #66bb6a;
+    --primary-dark: #388e3c;
+    --secondary: #ffa726;
+    --accent: #81c784;
+    --background: #121212;
+    --surface: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888;
+    --border: #333333;
+    --success: #66bb6a;
+    --warning: #ffa726;
+    --error: #f44336;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --card-bg: #252525;
+    --input-bg: #2d2d2d;
+    --skeleton-bg: #2d2d2d;
+    --skeleton-highlight: #3d3d3d;
+    --hover-bg: #2a2a2a;
+}
+
+/* Dark theme specific overrides */
+[data-theme="dark"] .safety-badge.safe {
+    background: #1b3a1f;
+    color: #a5d6a7;
+}
+
+[data-theme="dark"] .safety-badge.caution {
+    background: #3a2e1b;
+    color: #ffcc80;
+}
+
+[data-theme="dark"] .availability-badge.common {
+    background: #1a237e;
+    color: #90caf9;
+}
+
+[data-theme="dark"] .availability-badge.rare {
+    background: #4a0036;
+    color: #f48fb1;
+}
+
+[data-theme="dark"] .action-btn.favorite.active {
+    background: #5a2a2a;
+}

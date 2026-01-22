@@ -1,0 +1,284 @@
+{
+  "plants": [
+    {
+      "id": "aloe-vera",
+      "name": "Aloe Vera",
+      "scientificName": "Aloe barbadensis miller",
+      "commonNames": ["Aloe", "True Aloe", "Medicinal Aloe"],
+      "family": "Asphodelaceae",
+      "description": "Aloe vera is a succulent plant species of the genus Aloe. It is widely distributed, and is considered an invasive species in many world regions. The plant has thick, fleshy leaves that contain a clear gel used for various medicinal and cosmetic purposes.",
+      "medicinalUses": [
+        {
+          "use": "Burns and wound healing",
+          "description": "The gel from aloe vera leaves can be applied directly to burns, cuts, and wounds to promote healing and reduce inflammation."
+        },
+        {
+          "use": "Skin conditions",
+          "description": "Effective for treating various skin conditions including sunburn, psoriasis, and acne."
+        },
+        {
+          "use": "Digestive health",
+          "description": "Aloe vera juice can help with digestive issues when consumed in appropriate amounts."
+        }
+      ],
+      "activeCompounds": [
+        "Acemannan",
+        "Aloin",
+        "Anthraquinones",
+        "Vitamins A, C, E",
+        "Enzymes"
+      ],
+      "precautions": "Do not ingest aloe latex as it may cause serious side effects including cramping and diarrhea. Topical use is generally safe, but test on a small area first to check for allergic reactions. Pregnant or breastfeeding women should avoid internal use.",
+      "dosage": "For topical use: Apply gel directly to affected area 2-3 times daily. For internal use: Consult healthcare provider for appropriate dosage.",
+      "safetyRating": "safe",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Warm, dry climates",
+        "sunlight": "Bright, indirect light",
+        "water": "Low to moderate",
+        "soil": "Well-draining, sandy soil"
+      },
+      "rating": 4.8,
+      "reviewCount": 142,
+      "properties": ["anti-inflammatory", "antioxidant", "skin-healing", "wound-healing"]
+    },
+    {
+      "id": "turmeric",
+      "name": "Turmeric",
+      "scientificName": "Curcuma longa",
+      "commonNames": ["Indian Saffron", "Golden Spice", "Haldi"],
+      "family": "Zingiberaceae",
+      "description": "Turmeric is a flowering plant of the ginger family, native to the Indian subcontinent and Southeast Asia. The rhizome (root) is used as a spice and has been used in traditional medicine for thousands of years.",
+      "medicinalUses": [
+        {
+          "use": "Anti-inflammatory",
+          "description": "Contains curcumin, a powerful anti-inflammatory compound that can help reduce inflammation throughout the body."
+        },
+        {
+          "use": "Arthritis relief",
+          "description": "May help reduce pain and improve function in people with osteoarthritis and rheumatoid arthritis."
+        },
+        {
+          "use": "Digestive aid",
+          "description": "Supports healthy digestion and may help with conditions like irritable bowel syndrome."
+        },
+        {
+          "use": "Antioxidant protection",
+          "description": "Rich in antioxidants that help protect cells from damage and may reduce the risk of chronic diseases."
+        }
+      ],
+      "activeCompounds": [
+        "Curcumin",
+        "Demethoxycurcumin",
+        "Bisdemethoxycurcumin",
+        "Turmerone"
+      ],
+      "precautions": "High doses may cause stomach upset. People with gallbladder problems should avoid turmeric supplements. May interact with blood thinners and diabetes medications. Pregnant women should consult a healthcare provider before use.",
+      "dosage": "Typical dosage: 500-2000mg of turmeric extract per day, or 1-3 grams of dried, powdered root. Best absorbed with black pepper (piperine).",
+      "safetyRating": "safe",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Tropical, warm and humid",
+        "sunlight": "Partial shade to full sun",
+        "water": "Regular watering",
+        "soil": "Rich, well-draining soil"
+      },
+      "rating": 4.6,
+      "reviewCount": 89,
+      "properties": ["anti-inflammatory", "antioxidant", "digestive", "pain-relief"]
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint",
+      "scientificName": "Mentha × piperita",
+      "commonNames": ["Mint", "Garden Mint"],
+      "family": "Lamiaceae",
+      "description": "Peppermint is a hybrid mint, a cross between watermint and spearmint. Indigenous to Europe and the Middle East, the plant is now widely spread and cultivated in many regions of the world. It is used for its aromatic and medicinal properties.",
+      "medicinalUses": [
+        {
+          "use": "Digestive issues",
+          "description": "Peppermint oil can help relieve symptoms of irritable bowel syndrome (IBS), including abdominal pain and bloating."
+        },
+        {
+          "use": "Headache relief",
+          "description": "Topical application of peppermint oil may help reduce tension headaches and migraines."
+        },
+        {
+          "use": "Respiratory problems",
+          "description": "The menthol in peppermint can help clear nasal congestion and soothe respiratory tract."
+        },
+        {
+          "use": "Muscle pain",
+          "description": "Topical peppermint oil may help relieve muscle aches and soreness."
+        }
+      ],
+      "activeCompounds": [
+        "Menthol",
+        "Menthone",
+        "Limonene",
+        "Cineole"
+      ],
+      "precautions": "May cause heartburn in some individuals. Not recommended for infants or people with GERD. Essential oil should be diluted before topical use. May interact with certain medications.",
+      "dosage": "Tea: 1-2 teaspoons of dried leaves steeped in hot water. Essential oil: 1-2 drops diluted in carrier oil for topical use. Capsules: 0.2-0.4ml of peppermint oil, 2-3 times daily.",
+      "safetyRating": "safe",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Temperate",
+        "sunlight": "Partial shade to full sun",
+        "water": "Regular watering, keep soil moist",
+        "soil": "Rich, moist soil"
+      },
+      "rating": 4.5,
+      "reviewCount": 76,
+      "properties": ["digestive", "calming", "analgesic", "anti-inflammatory"]
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "scientificName": "Lavandula angustifolia",
+      "commonNames": ["English Lavender", "True Lavender"],
+      "family": "Lamiaceae",
+      "description": "Lavender is a flowering plant in the mint family, native to the Mediterranean region, but now cultivated worldwide. It has been used for centuries for its calming fragrance and medicinal properties.",
+      "medicinalUses": [
+        {
+          "use": "Anxiety relief",
+          "description": "Lavender essential oil has been shown to reduce anxiety and promote relaxation."
+        },
+        {
+          "use": "Insomnia",
+          "description": "The scent of lavender can improve sleep quality and help with insomnia."
+        },
+        {
+          "use": "Stress reduction",
+          "description": "Helps lower stress levels and promotes emotional well-being."
+        },
+        {
+          "use": "Skin conditions",
+          "description": "Can be used topically to treat minor burns, cuts, and skin irritations."
+        }
+      ],
+      "activeCompounds": [
+        "Linalool",
+        "Linalyl acetate",
+        "Camphor",
+        "Terpinen-4-ol"
+      ],
+      "precautions": "May cause skin irritation in some individuals when applied topically. Avoid during pregnancy as it may stimulate uterine contractions. May cause drowsiness; avoid driving or operating machinery after use. Can interact with sedatives.",
+      "dosage": "Aromatherapy: 2-4 drops in diffuser. Tea: 1-2 teaspoons dried flowers steeped in hot water. Topical: Dilute essential oil (2-3 drops per teaspoon of carrier oil).",
+      "safetyRating": "caution",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Mediterranean, warm and dry",
+        "sunlight": "Full sun",
+        "water": "Low to moderate",
+        "soil": "Well-draining, slightly alkaline"
+      },
+      "rating": 4.7,
+      "reviewCount": 103,
+      "properties": ["calming", "skin-healing", "antimicrobial", "anxiolytic"]
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "scientificName": "Zingiber officinale",
+      "commonNames": ["Ginger Root", "Zingiber"],
+      "family": "Zingiberaceae",
+      "description": "Ginger is a flowering plant whose rhizome is widely used as a spice and folk medicine. It has been used in traditional medicine for thousands of years to treat various ailments.",
+      "medicinalUses": [
+        {
+          "use": "Nausea relief",
+          "description": "Highly effective for reducing nausea and vomiting, including morning sickness and motion sickness."
+        },
+        {
+          "use": "Anti-inflammatory",
+          "description": "Contains gingerol, a powerful anti-inflammatory compound."
+        },
+        {
+          "use": "Digestive aid",
+          "description": "Helps stimulate digestion and relieve digestive discomfort."
+        },
+        {
+          "use": "Cold and flu",
+          "description": "May help boost immune function and reduce symptoms of cold and flu."
+        }
+      ],
+      "activeCompounds": [
+        "Gingerol",
+        "Shogaol",
+        "Zingerone",
+        "Paradol"
+      ],
+      "precautions": "May interact with blood thinners and increase bleeding risk. High doses may cause heartburn or mouth irritation. People with gallstones should consult a doctor before use. May lower blood sugar levels.",
+      "dosage": "Fresh ginger: 1-3 grams daily. Dried ginger powder: 0.25-1 gram daily. Tea: 1-2 slices of fresh ginger steeped in hot water.",
+      "safetyRating": "safe",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Tropical and subtropical",
+        "sunlight": "Partial shade",
+        "water": "Regular watering, keep soil moist",
+        "soil": "Rich, well-draining soil"
+      },
+      "rating": 4.4,
+      "reviewCount": 67,
+      "properties": ["anti-inflammatory", "digestive", "analgesic", "antiemetic"]
+    },
+    {
+      "id": "chamomile",
+      "name": "Chamomile",
+      "scientificName": "Matricaria chamomilla",
+      "commonNames": ["German Chamomile", "Wild Chamomile"],
+      "family": "Asteraceae",
+      "description": "Chamomile is a daisy-like plant that has been used for centuries for its calming and medicinal properties. It is one of the oldest and most widely used medicinal plants in the world.",
+      "medicinalUses": [
+        {
+          "use": "Anxiety relief",
+          "description": "Chamomile tea has mild sedative effects that can help reduce anxiety and promote relaxation."
+        },
+        {
+          "use": "Insomnia",
+          "description": "Helps improve sleep quality and can be used as a natural sleep aid."
+        },
+        {
+          "use": "Digestive issues",
+          "description": "Can help relieve digestive problems including gas, indigestion, and diarrhea."
+        },
+        {
+          "use": "Skin inflammation",
+          "description": "Topical application can help soothe skin irritations, wounds, and inflammation."
+        }
+      ],
+      "activeCompounds": [
+        "Apigenin",
+        "Bisabolol",
+        "Chamazulene",
+        "Flavonoids"
+      ],
+      "precautions": "May cause allergic reactions in people sensitive to plants in the Asteraceae family (ragweed, chrysanthemums, marigolds). Avoid during pregnancy due to potential uterine stimulation. May interact with blood thinners and sedatives.",
+      "dosage": "Tea: 1 tablespoon of dried flowers or 3-4 teaspoons of fresh flowers steeped in 8 oz hot water, 3-4 times daily. Tincture: 15ml, 3-4 times daily.",
+      "safetyRating": "caution",
+      "availability": "common",
+      "growingConditions": {
+        "climate": "Temperate",
+        "sunlight": "Full sun to partial shade",
+        "water": "Moderate, avoid overwatering",
+        "soil": "Well-draining, sandy soil"
+      },
+      "rating": 4.3,
+      "reviewCount": 58,
+      "properties": ["calming", "digestive", "skin-healing", "anti-inflammatory"]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-11-05",
+    "totalPlants": 6,
+    "categories": [
+      "Digestive Health",
+      "Skin Care",
+      "Pain Relief",
+      "Anxiety & Stress",
+      "Anti-inflammatory",
+      "Sleep Aid"
+    ]
+  }
+}

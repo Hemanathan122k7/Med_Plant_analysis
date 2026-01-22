@@ -1,0 +1,160 @@
+/* Header Component Styles */
+
+header {
+    background-color: var(--primary);
+    color: var(--surface);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    animation: slideDown 0.5s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--surface);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 0.5rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after, 
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover, 
+nav a.active {
+    color: var(--secondary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--surface);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(15deg);
+}
+
+.theme-toggle .sun {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle .moon {
+    position: absolute;
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle .sun {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+[data-theme="dark"] .theme-toggle .moon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    color: var(--surface);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.user-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}

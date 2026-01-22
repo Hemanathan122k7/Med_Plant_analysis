@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediPlant - Advanced Medicinal Plant Identifier. Discover, identify, and learn about medicinal plants and their healing properties.">
+    <meta name="keywords" content="medicinal plants, herbal medicine, plant identification, natural remedies">
+    <title>MediPlant - Advanced Medicinal Plant Identifier</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/themes/light.css">
+    <link rel="stylesheet" href="styles/themes/dark.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/onboarding.css">
+    <link rel="stylesheet" href="styles/components/search.css">
+    <link rel="stylesheet" href="styles/components/chat.css">
+    <link rel="stylesheet" href="styles/components/results.css">
+    <link rel="stylesheet" href="styles/components/cards.css">
+    <link rel="stylesheet" href="styles/components/community.css">
+    <link rel="stylesheet" href="styles/components/settings.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+</head>
+<body>
+    <!-- Theme transition overlay -->
+    <div class="theme-transition" id="theme-transition"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <h1>MediPlant</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#search">Search</a></li>
+                    <li><a href="#plants">Plants</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun sun"></i>
+                    <i class="fas fa-moon moon"></i>
+                </button>
+                <div class="user-actions">
+                    <button class="user-btn" title="Search History"><i class="fas fa-history"></i></button>
+                    <button class="user-btn" title="Favorites"><i class="far fa-heart"></i></button>
+                    <button class="user-btn" id="settings-btn" title="Settings"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Onboarding Slider -->
+        <div class="onboarding-slider" id="onboarding">
+            <button class="skip-onboarding">Skip</button>
+            
+            <div class="slide active">
+                <div class="slide-icon">🔍</div>
+                <h3>Identify Plants</h3>
+                <p>Take a photo or describe symptoms to find medicinal plants</p>
+            </div>
+            
+            <div class="slide">
+                <div class="slide-icon">💊</div>
+                <h3>Learn Uses</h3>
+                <p>Discover traditional and modern medicinal applications</p>
+            </div>
+            
+            <div class="slide">
+                <div class="slide-icon">⚠️</div>
+                <h3>Safety First</h3>
+                <p>Important precautions and usage guidelines</p>
+            </div>
+            
+            <div class="slider-controls">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Search Section -->
+        <section class="search-section" id="search">
+            <div class="search-header">
+                <h2>Identify Medicinal Plants</h2>
+                <button class="voice-search-btn" title="Voice Search">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+            <p>Find information about medicinal plants using different search methods</p>
+            
+            <div class="search-tabs">
+                <div class="tab active" data-tab="symptoms">
+                    <i class="fas fa-stethoscope"></i>
+                    Symptoms
+                </div>
+                <div class="tab" data-tab="image">
+                    <i class="fas fa-camera"></i>
+                    Image Search
+                </div>
+                <div class="tab" data-tab="visual">
+                    <i class="fas fa-eye"></i>
+                    Visual Search
+                </div>
+                <div class="tab" data-tab="name">
+                    <i class="fas fa-search"></i>
+                    Name Search
+                </div>
+            </div>
+            
+            <!-- Symptoms Search Tab -->
+            <div class="tab-content active" id="symptoms-tab">
+                <div class="search-input-container">
+                    <input type="text" class="search-input" id="symptoms-input" placeholder="Describe your symptoms (e.g., headache, stomach pain, stress)">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="search-suggestions">
+                        <div class="suggestion-item" data-symptom="headache">Headache</div>
+                        <div class="suggestion-item" data-symptom="stress">Stress & Anxiety</div>
+                        <div class="suggestion-item" data-symptom="digestion">Digestive Issues</div>
+                        <div class="suggestion-item" data-symptom="cold">Cold & Flu</div>
+                        <div class="suggestion-item" data-symptom="pain">Pain Relief</div>
+                    </div>
+                </div>
+                <button class="search-button" data-tab="symptoms">
+                    <i class="fas fa-search"></i>
+                    Search by Symptoms
+                </button>
+            </div>
+            
+            <!-- Image Search Tab -->
+            <div class="tab-content" id="image-tab">
+                <div class="image-search-enhanced">
+                    <div class="camera-option">
+                        <button class="camera-btn">
+                            <i class="fas fa-camera"></i>
+                            Take Photo
+                        </button>
+                    </div>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📷</div>
+                        <p>Click to upload an image or drag and drop</p>
+                        <p>Supported formats: JPG, PNG, WEBP</p>
+                    </div>
+                    <input type="file" id="image-upload" accept="image/*" class="hidden-input">
+                    
+                    <div class="image-preview" id="image-preview">
+                        <img id="preview-img" src="" alt="Preview">
+                        <div class="image-actions">
+                            <button class="crop-btn"><i class="fas fa-crop-alt"></i> Crop</button>
+                            <button class="rotate-btn"><i class="fas fa-redo"></i> Rotate</button>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Identify Plant
+                </button>
+            </div>
+            
+            <!-- Visual Search Tab -->
+            <div class="tab-content" id="visual-tab">
+                <h3>Select Plant Characteristics</h3>
+                
+                <h4>Leaf Shape</h4>
+                <div class="visual-search-options" id="leaf-shape">
+                    <div class="visual-option" data-value="oval">
+                        <div class="option-icon">🍃</div>
+                        <div>Oval</div>
+                    </div>
+                    <div class="visual-option" data-value="lanceolate">
+                        <div class="option-icon">🌱</div>
+                        <div>Lanceolate</div>
+                    </div>
+                    <div class="visual-option" data-value="heart">
+                        <div class="option-icon">💚</div>
+                        <div>Heart-shaped</div>
+                    </div>
+                    <div class="visual-option" data-value="palmate">
+                        <div class="option-icon">🖐️</div>
+                        <div>Palmate</div>
+                    </div>
+                    <div class="visual-option" data-value="needle">
+                        <div class="option-icon">🌲</div>
+                        <div>Needle-like</div>
+                    </div>
+                </div>
+                
+                <h4>Flower Color</h4>
+                <div class="visual-search-options" id="flower-color">
+                    <div class="visual-option" data-value="white">
+                        <div class="option-icon">⚪</div>
+                        <div>White</div>
+                    </div>
+                    <div class="visual-option" data-value="yellow">
+                        <div class="option-icon">🟡</div>
+                        <div>Yellow</div>
+                    </div>
+                    <div class="visual-option" data-value="red">
+                        <div class="option-icon">🔴</div>
+                        <div>Red</div>
+                    </div>
+                    <div class="visual-option" data-value="purple">
+                        <div class="option-icon">🟣</div>
+                        <div>Purple</div>
+                    </div>
+                    <div class="visual-option" data-value="blue">
+                        <div class="option-icon">🔵</div>
+                        <div>Blue</div>
+                    </div>
+                </div>
+                
+                <h4>Plant Height</h4>
+                <div class="visual-search-options" id="plant-height">
+                    <div class="visual-option" data-value="short">
+                        <div class="option-icon">📏</div>
+                        <div>Short (< 1 ft)</div>
+                    </div>
+                    <div class="visual-option" data-value="medium">
+                        <div class="option-icon">📐</div>
+                        <div>Medium (1-3 ft)</div>
+                    </div>
+                    <div class="visual-option" data-value="tall">
+                        <div class="option-icon">📏</div>
+                        <div>Tall (> 3 ft)</div>
+                    </div>
+                </div>
+                
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Search by Characteristics
+                </button>
+            </div>
+            
+            <!-- Name Search Tab -->
+            <div class="tab-content" id="name-tab">
+                <div class="search-input-container">
+                    <input type="text" class="search-input" placeholder="Enter plant name (e.g. Aloe Vera, Turmeric)">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="search-suggestions">
+                        <div class="suggestion-item">Aloe Vera</div>
+                        <div class="suggestion-item">Turmeric</div>
+                        <div class="suggestion-item">Ginger</div>
+                        <div class="suggestion-item">Lavender</div>
+                        <div class="suggestion-item">Peppermint</div>
+                    </div>
+                </div>
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                    Search by Name
+                </button>
+            </div>
+            
+            <!-- Advanced Filters -->
+            <button class="filter-toggle">
+                <i class="fas fa-sliders-h"></i>
+                Advanced Filters
+            </button>
+            
+            <div class="advanced-filters">
+                <div class="filter-group">
+                    <h5>Medicinal Properties</h5>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="anti-inflammatory">
+                            Anti-inflammatory
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="antioxidant">
+                            Antioxidant
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="analgesic">
+                            Pain Relief
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="digestive">
+                            Digestive Aid
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="properties" value="calming">
+                            Calming
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h5>Safety Level</h5>
+                    <div class="safety-slider">
+                        <input type="range" min="1" max="5" value="3" class="slider">
+                        <div class="safety-labels">
+                            <span>Caution</span>
+                            <span>Generally Safe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h5>Availability</h5>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="common" checked>
+                            Common
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="uncommon">
+                            Uncommon
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="availability" value="rare">
+                            Rare
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Search Hint -->
+        <div class="search-hint" id="search-hint">
+            <h3>🔍 Search for plants to see results here</h3>
+            <p>Use any of the search methods above to find medicinal plants</p>
+        </div>
+        
+        <!-- Results Section -->
+        <section class="results-section" id="results">
+            <div class="results-header">
+                <h2>Search Results</h2>
+                <div class="results-actions">
+                    <button class="action-btn compare" id="compare-btn">
+                        <i class="fas fa-balance-scale"></i>
+                        Compare
+                    </button>
+                    <button class="action-btn filter">
+                        <i class="fas fa-filter"></i>
+                        Filter
+                    </button>
+                </div>
+            </div>
+            
+            <div id="results-count">0 plants found</div>
+            
+            <div id="results-container">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+            
+            <div class="no-results hidden" id="no-results">
+                <h3>No plants found matching your criteria</h3>
+                <p>Try adjusting your search parameters or browse our featured plants below.</p>
+            </div>
+        </section>
+        
+        <!-- Comparison Tool -->
+        <div class="comparison-tool" id="comparison-tool">
+            <div class="comparison-header">
+                <h3>Compare Plants</h3>
+                <button class="action-btn" id="clear-comparison">
+                    <i class="fas fa-times"></i>
+                    Clear All
+                </button>
+            </div>
+            <div class="comparison-grid" id="comparison-grid">
+                <!-- Comparison cards will be inserted here -->
+            </div>
+        </div>
+        
+        <!-- Community Section -->
+        <section class="community-section" id="community">
+            <h2 class="section-title">Community Insights</h2>
+            
+            <!-- Add Review Form -->
+            <div class="add-review-section">
+                <h4>Share Your Experience</h4>
+                <form id="review-form" class="review-form">
+                    <div class="form-group">
+                        <input type="text" id="reviewer-name" placeholder="Your Name" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="reviewer-email" placeholder="Your Email Address" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <select id="review-rating" required class="form-input">
+                            <option value="">Select Rating</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Very Good</option>
+                            <option value="3">⭐⭐⭐ Good</option>
+                            <option value="2">⭐⭐ Fair</option>
+                            <option value="1">⭐ Poor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="review-text" placeholder="Share your experience with medicinal plants..." required class="form-textarea" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-review">
+                        <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                </form>
+            </div>
+            
+            <div class="user-reviews">
+                <h4>User Experiences</h4>
+                <div id="reviews-container">
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="user-info">
+                                <span class="user-name">Sarah M.</span>
+                                <span class="user-email">sarah.m@example.com</span>
+                            </div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">Used Aloe Vera for sunburn relief - worked wonders! The gel provided instant cooling and the redness was gone in two days.</p>
+                    </div>
+                    
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="user-info">
+                                <span class="user-name">James K.</span>
+                                <span class="user-email">james.k@example.com</span>
+                            </div>
+                            <span class="review-date">1 month ago</span>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐</div>
+                        <p class="review-text">Turmeric tea helped with my joint inflammation. Took about a week to notice significant improvement, but it was worth it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MediPlant</h3>
+                <p>Your trusted companion for identifying medicinal plants and discovering their healing properties.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#search">Plant Search</a></li>
+                    <li><a href="#plants">Plant Directory</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#guide">Plant Identification Guide</a></li>
+                    <li><a href="#safety">Safety Guidelines</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: hemanathan8337@gmail.com</li>
+                    <li>Phone: +91 7904175696</li>
+                    <li>Address: M Kumarasamy College of Engineering, Karur</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 MediPlant. All rights reserved. | This application is for educational purposes only. Consult a healthcare professional before using any herbal remedies.</p>
+            <p>Made by HEMANATHAN A</p>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settings-modal">
+        <div class="settings-modal-content">
+            <span class="close-settings-modal" id="close-settings-modal">&times;</span>
+            <h2><i class="fas fa-cog"></i> Settings</h2>
+            
+            <div class="settings-section">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                    <label for="theme-select">Theme</label>
+                    <select id="theme-select" class="setting-select">
+                        <option value="light">Light Mode</option>
+                        <option value="dark">Dark Mode</option>
+                        <option value="auto">Auto (System)</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="font-size-select">Font Size</label>
+                    <select id="font-size-select" class="setting-select">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Search Preferences</h3>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="auto-search" class="setting-checkbox">
+                        <span>Enable auto-search while typing</span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="show-scientific-names" class="setting-checkbox" checked>
+                        <span>Show scientific names in results</span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="results-per-page">Results per page</label>
+                    <select id="results-per-page" class="setting-select">
+                        <option value="10">10</option>
+                        <option value="20" selected>20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="enable-notifications" class="setting-checkbox" checked>
+                        <span>Enable toast notifications</span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="enable-sounds" class="setting-checkbox">
+                        <span>Enable sound effects</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Data & Privacy</h3>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="save-search-history" class="setting-checkbox" checked>
+                        <span>Save search history</span>
+                    </label>
+                </div>
+                
+                <div class="setting-item">
+                    <button class="btn-danger" id="clear-history-btn">
+                        <i class="fas fa-trash"></i> Clear Search History
+                    </button>
+                </div>
+                
+                <div class="setting-item">
+                    <button class="btn-danger" id="reset-settings-btn">
+                        <i class="fas fa-undo"></i> Reset All Settings
+                    </button>
+                </div>
+            </div>
+            
+            <div class="settings-footer">
+                <button class="btn-secondary" id="cancel-settings">Cancel</button>
+                <button class="btn-primary" id="save-settings">
+                    <i class="fas fa-save"></i> Save Settings
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Utility Scripts -->
+    <script src="scripts/utils/helpers.js"></script>
+    <script src="scripts/utils/animations.js"></script>
+    
+    <!-- Module Scripts (Load before main.js) -->
+    <script src="scripts/modules/plant-database.js"></script>
+    <script src="scripts/modules/user-preferences.js"></script>
+    <script src="scripts/modules/theme-manager.js"></script>
+    <script src="scripts/modules/ui-manager.js"></script>
+    <script src="scripts/modules/search-engine.js"></script>
+    <script src="scripts/modules/api-client.js"></script>
+    <script src="scripts/modules/chat-module.js"></script>
+    
+    <!-- Main Application Script (Load last) -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

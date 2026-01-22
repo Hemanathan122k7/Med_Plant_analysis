@@ -1,0 +1,349 @@
+/* Plant Cards Component Styles */
+
+.plant-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Dark mode card background */
+[data-theme="dark"] .plant-card {
+    background: #2d3748;
+    border: 1px solid #4a5568;
+}
+
+.plant-card:nth-child(1) { animation-delay: 0.1s; }
+.plant-card:nth-child(2) { animation-delay: 0.2s; }
+.plant-card:nth-child(3) { animation-delay: 0.3s; }
+.plant-card:nth-child(4) { animation-delay: 0.4s; }
+
+.plant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+[data-theme="dark"] .plant-card:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+.plant-emoji {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.plant-info {
+    margin-bottom: 1.5rem;
+}
+
+.plant-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+}
+
+/* Dark mode plant name */
+[data-theme="dark"] .plant-name {
+    color: #f7fafc;
+}
+
+.plant-scientific {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #4a5568;
+    margin: 0;
+}
+
+/* Dark mode scientific name */
+[data-theme="dark"] .plant-scientific {
+    color: #cbd5e0;
+}
+
+.plant-uses-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Dark mode footer border */
+[data-theme="dark"] .plant-uses-footer {
+    border-top: 1px solid #4a5568;
+}
+
+.use-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff !important;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Ensure text is visible in both light and dark mode */
+[data-theme="dark"] .use-tag {
+    color: #ffffff !important;
+}
+
+[data-theme="light"] .use-tag {
+    color: #ffffff !important;
+}
+
+/* Modal Styles */
+.plant-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode styles for modal */
+[data-theme="dark"] .modal-content {
+    background: #1a202c;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Dark mode close button */
+[data-theme="dark"] .close-modal {
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .close-modal:hover {
+    color: #fff;
+}
+
+.plant-emoji-large {
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Dark mode heading */
+[data-theme="dark"] .modal-content h2 {
+    color: #f7fafc;
+}
+
+.scientific-name {
+    text-align: center;
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Dark mode scientific name */
+[data-theme="dark"] .scientific-name {
+    color: #a0aec0;
+}
+
+.plant-details h3 {
+    color: #667eea;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Dark mode section headings */
+[data-theme="dark"] .plant-details h3 {
+    color: #818cf8;
+}
+
+.plant-details p {
+    color: #2d3748;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Dark mode paragraph text */
+[data-theme="dark"] .plant-details p {
+    color: #e2e8f0;
+}
+
+.uses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.warning-text {
+    background: #fff5f5;
+    border-left: 4px solid #fc8181;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #742a2a;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Dark mode warning */
+[data-theme="dark"] .warning-text {
+    background: #742a2a;
+    border-left: 4px solid #fc8181;
+    color: #fed7d7;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.review-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.plant-description {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.plant-uses {
+    margin-bottom: 1rem;
+}
+
+.plant-uses h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.use-tag {
+    display: inline-block;
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.use-tag:hover {
+    background-color: rgba(46, 125, 50, 0.2);
+    transform: translateY(-2px);
+}
+
+.quick-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.quick-actions .action-btn {
+    flex: 1;
+}
+
+.precautions {
+    background-color: var(--warning);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    border-left: 4px solid var(--secondary);
+    color: white;
+}
+
+.precautions h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .plant-card {
+        flex-direction: column;
+    }
+    
+    .plant-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .plant-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .quick-actions {
+        flex-wrap: wrap;
+    }
+}

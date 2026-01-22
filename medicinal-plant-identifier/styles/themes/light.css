@@ -1,0 +1,24 @@
+/* Light Theme Variables */
+
+:root {
+    --primary: #2e7d32;
+    --primary-light: #4caf50;
+    --primary-dark: #1b5e20;
+    --secondary: #ff9800;
+    --accent: #7cb342;
+    --background: #f8fdf8;
+    --surface: #ffffff;
+    --text-primary: #1b5e20;
+    --text-secondary: #666;
+    --text-muted: #888;
+    --border: #e0e0e0;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --skeleton-bg: #f0f0f0;
+    --skeleton-highlight: #e0e0e0;
+}
